@@ -1,31 +1,28 @@
 <template>
-  <h1 @click="increase">
-    {{ count }}
-  </h1>
-  <div v-if="count > 4">4보다 큽니다!</div>
-  <ul>
-    <Fruit v-for="fruit in fruits" :key="fruit" :name="fruit">
-      {{ fruit }}
-    </Fruit>
-  </ul>
+  <!-- Remove & use example component! -->
+  <HelloWorld
+    :msg="message"
+    @click="handler" />
+  <HelloWorld msg="Good" />
 </template>
 
 <script>
-import Fruit from "~/components/Fruit";
+import HelloWorld from '~/components/HelloWorld'
+
 export default {
   components: {
-    Fruit,
+    HelloWorld
   },
   data() {
     return {
-      count: 0,
-      fruits: ["사과", "바나나", "체리"],
-    };
+      message: 'Hello Vue!'
+    }
   },
   methods: {
-    increase() {
-      this.count += 1;
-    },
-  },
-};
+    handler() {
+      console.log(this.message)
+      this.message += '!'
+    }
+  }
+}
 </script>
