@@ -1,36 +1,41 @@
 <template>
-  <h1 @click="changeMsg">{{ msg }}</h1>
-  <h1>{{ reversedMsg }}</h1>
+  <h1 v-bind:class="{ active: isActive }" @click="activate">
+    Hello?{{ isActive }}
+  </h1>
+
+  <h1 :style="[fontStyle, backgroundStyle]" @click="changeStyle">Hello?</h1>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      msg: "Hello???",
+      isActive: false,
+      fontStyle: {
+        color: "orange",
+        fontSize: "30px",
+      },
+      backgroundStyle: {
+        backgroundColor: "black",
+      },
     };
   },
-  computed: {
-    reversedMsg() {
-      return this.msg.split("").reverse().join("");
-    },
-  },
-  // 변경되는 사항을 감지
-  watch: {
-    // msg() {
-    //   console.log("msg:", this.msg);
-    // },
-    msg(value) {
-      console.log("msg:", value);
-    },
-    reversedMsg() {
-      console.log("reversedMsg:", this.reversedMsg);
-    },
-  },
   methods: {
-    changeMsg() {
-      this.msg = "Good!!!!!!!";
+    activate() {
+      this.isActive = true;
+    },
+    changeStyle() {
+      this.fontStyle.color = "red";
+      this.fontStyle.fontSize = "50px";
     },
   },
 };
 </script>
+
+<style scoped>
+.active {
+  color: rebeccapurple;
+  font-weight: 900;
+  font-size: 20px;
+}
+</style>
