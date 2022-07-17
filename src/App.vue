@@ -1,25 +1,14 @@
 <template>
-  <h1 v-once @click="add">{{ msg }}</h1>
-  <h1 v-bind:class="active">{{ msg2 }}</h1>
-  <h1 :[attr]="'active'" @click="add"> {{ msg2 }}</h1>
+  <Abc />
 </template>
 
 <script>
+import Abc from "~/components/Abc";
 export default {
-  data() {
-    return {
-      msg: 'Hello world',
-      msg2: 'active',
-      attr: 'class',
-      event: 'click'
-    }
+  components: {
+    Abc,
   },
-  methods: {
-    add() {
-      this.msg2 += '!'
-    }
-  }
-}
+};
 </script>
 
 <style scoped>

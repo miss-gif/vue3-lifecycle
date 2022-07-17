@@ -1,5 +1,6 @@
 <template>
   <li>{{ name }}?!!!!</li>
+  <div>{{ name }}</div>
 </template>
 
 <script>
