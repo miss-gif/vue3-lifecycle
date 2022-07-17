@@ -1,19 +1,30 @@
 <template>
-  <Abc />
+  <h1>{{ reversedMsg }}</h1>
+  <h1>{{ reverseMsg() }}</h1>
 </template>
 
 <script>
-import Abc from "~/components/Abc";
 export default {
-  components: {
-    Abc,
+  data() {
+    return {
+      msg: "Hello Computed!!!",
+    };
+  },
+  computed: {
+    reversedMsg() {
+      return this.msg.split("").reverse().join("");
+    }, // 계산된 데이터, 캐싱
+  },
+  methods: {
+    reverseMsg() {
+      return this.msg.split("").reverse().join("");
+    },
   },
 };
 </script>
 
 <style scoped>
-.active {
+h1 {
   font-size: 100px;
-  color: blueviolet;
 }
 </style>
