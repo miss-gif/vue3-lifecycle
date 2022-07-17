@@ -1,31 +1,30 @@
 <template>
-  <h1>{{ count }}</h1>
+  <h1 v-once @click="add">{{ msg }}</h1>
+  <h1 v-bind:class="active">{{ msg2 }}</h1>
+  <h1 :[attr]="'active'" @click="add"> {{ msg2 }}</h1>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      count: 2,
-    };
+      msg: 'Hello world',
+      msg2: 'active',
+      attr: 'class',
+      event: 'click'
+    }
   },
-  // 컴포넌트 생성 직전, 활용도 낮음
-  beforeCreate() {
-    console.log("before Create", this.count);
-  },
-  // 컴포넌트 생성 직후
-  created() {
-    console.log("Created!", this.count);
-  },
-  // html 연결 전, 활용도 낮음
-  beforeMount() {
-    console.log("before Mount");
-    console.log(document.querySelector("h1"))
-  },
-  // html 연결 후
-  mounted() {
-    console.log("mounted!");
-    console.log(document.querySelector("h1"))
-  },
-};
+  methods: {
+    add() {
+      this.msg2 += '!'
+    }
+  }
+}
 </script>
+
+<style scoped>
+.active {
+  font-size: 100px;
+  color: blueviolet;
+}
+</style>
