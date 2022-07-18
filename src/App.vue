@@ -1,7 +1,8 @@
 <template>
+  <button @click="handler">click me!</button>
   <ul>
-    <li v-for="fruit in newFriuits" :key="fruit.id">
-      {{ fruit.name }}
+    <li v-for="{ id, name } in newFriuits" :key="id">
+      {{ name }} --- {{ id }}
     </li>
   </ul>
 </template>
@@ -17,12 +18,15 @@ export default {
   },
   computed: {
     newFriuits() {
-      return this.fruits.map((fruit, index) => {
-        return {
-          id: index,
-          name: fruit,
-        };
-      });
+      return this.fruits.map((fruit) => ({
+        id: shortid.generate(),
+        name: fruit,
+      }));
+    },
+  },
+  methods: {
+    handler() {
+      this.fruits.push("Orange");
     },
   },
 };
