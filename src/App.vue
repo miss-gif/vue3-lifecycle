@@ -1,20 +1,28 @@
 <template>
-  <button @click="handler">Click me!</button>
-  <h1 v-if="isShow">Hello?!</h1>
+  <ul>
+    <li v-for="fruit in newFriuits" :key="fruit.id">
+      {{ fruit.name }}
+    </li>
+  </ul>
 </template>
 
 <script>
+import shortid from "shortid";
+
 export default {
   data() {
     return {
-      isShow: false,
-      count: 0,
+      fruits: ["Apple", "Banana", "Cherry"],
     };
   },
-  methods: {
-    handler() {
-      this.isShow = !this.isShow;
-      this.count += 1;
+  computed: {
+    newFriuits() {
+      return this.fruits.map((fruit, index) => {
+        return {
+          id: index,
+          name: fruit,
+        };
+      });
     },
   },
 };
