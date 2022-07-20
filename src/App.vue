@@ -1,13 +1,17 @@
 <template>
-  <input type="text" @keydown.ctrl.a="handler" />
+  <h1>{{ msg }}</h1>
+  <input type="text" v-model="msg" />
+  <h1>{{ checked }}</h1>
+  <input type="checkbox" v-model="checked" />
 </template>
 
 <script>
 export default {
-  methods: {
-    handler() {
-      console.log("Enter");
-    },
+  data() {
+    return {
+      msg: "Hello world!",
+      checked: false,
+    };
   },
 };
 </script>
