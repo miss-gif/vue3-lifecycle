@@ -1,19 +1,21 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <input type="text" v-model.trim="msg" />
+  <MyBtn>banana</MyBtn>
+  <MyBtn :color="color"> <span style="color: red">ppp</span></MyBtn>
+  <MyBtn large color="green">Cherry</MyBtn>
+  <MyBtn>abc</MyBtn>
 </template>
 
 <script>
+import MyBtn from "~/components/MyBtn";
+
 export default {
+  components: {
+    MyBtn,
+  },
   data() {
     return {
-      msg: "Hello world!",
+      color: "#000",
     };
-  },
-  watch: {
-    msg() {
-      console.log(this.msg);
-    },
   },
 };
 </script>
