@@ -1,25 +1,31 @@
 <template>
-  <button @click="handler">Click me! 1</button>
-  <button @click="handler('hi')">Click me! 2</button>
-  <button @click="handler('what')">Click me! 3</button>
-  <button @click="handler('ai', $event)">Click me! 4</button>
+  <div class="parent" @click.self="handlerA">
+    <div class="child"></div>
+  </div>
 </template>
 
 <script>
 export default {
   methods: {
-    handler(event) {
-      console.log(event);
-      console.log(event.target);
-      console.log(event.target.textContent);
+    handlerA() {
+      console.log("A");
     },
-    handler(msg) {
-      console.log(msg);
-    },
-    handler(msg, event) {
-      console.log(msg);
-      console.log(event);
+    handlerB() {
+      console.log("B");
     },
   },
 };
 </script>
+
+<style lang="scss">
+.parent {
+  width: 200px;
+  height: 200px;
+  background-color: rebeccapurple;
+}
+.child {
+  width: 100px;
+  height: 100px;
+  background-color: burlywood;
+}
+</style>
