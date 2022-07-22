@@ -1,27 +1,16 @@
-<template>
-  <button @click="message = 'Good?'">Click</button>
-  <h1>App: {{ message }}</h1>
-  <Parent />
-</template>
+<template></template>
 
 <script>
-import Parent from "~/components/Parent";
-import { computed } from "vue";
 export default {
-  components: {
-    Parent,
-  },
   data() {
     return {
-      message: "Hello world!!",
+      count: 0,
     };
   },
-  provide() {
-    return {
-      msg: computed(() => {
-        return this.message;
-      }),
-    };
+  methods: {
+    increase() {
+      this.count += 1;
+    },
   },
 };
 </script>
