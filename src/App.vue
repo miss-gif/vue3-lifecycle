@@ -1,5 +1,12 @@
 <template>
-  <MyBtn>banana</MyBtn>
+  <MyBtn>
+    <template #:icon>
+      <span> B </span>
+    </template>
+    <template #:text>
+      <span> Bdasjng </span>
+    </template>
+  </MyBtn>
 </template>
 
 <script>

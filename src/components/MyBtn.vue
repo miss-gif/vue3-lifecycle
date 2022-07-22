@@ -1,6 +1,7 @@
 <template>
   <div class="btn">
-    <slot></slot>
+    <slot name="text">text</slot>
+    <slot name="icon">icon</slot>
   </div>
 </template>
 
