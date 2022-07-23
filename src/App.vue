@@ -1,42 +1,22 @@
 <template>
-  <h1 @click="increase">{{ count }} / {{ doubleCount }}</h1>
-  <h1 @click="changeMessage">{{ message }} / {{ reversedMessage }}</h1>
+  <MyBtn class="akari" style="color: red" color="#ff0000" @hello="log">
+    Apple
+  </MyBtn>
 </template>
 
 <script>
+import MyBtn from "~/components/MyBtn";
+
 export default {
-  data() {
-    return {
-      count: 0,
-      massage: "Hello world!",
-    };
-  },
-  computed: {
-    doubleCount() {
-      return this.count * 2;
-    },
-    reversedMessage() {
-      return this.message.split("").reverse().join("");
-    },
-  },
-  watch: {
-    message(newValue) {
-      console.log(newValue);
-    },
-  },
-  created() {
-    console.log(this.massage);
-  },
-  mounted() {
-    console.log(this.count);
+  components: {
+    MyBtn,
   },
   methods: {
-    increase() {
-      this.count += 1;
-    },
-    changeMessage() {
-      this.massage = "Good?!";
+    log() {
+      console.log("Hello world!");
     },
   },
 };
 </script>
+
+<style></style>
